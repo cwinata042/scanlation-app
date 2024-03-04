@@ -6,6 +6,11 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --header-tab-width: 9.063rem;
+  --header-tab-border: #9b9b9b75;
+  --header-tab-text: #9b9b9b;
+  --project-color: #267264;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,16 +23,38 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-end;
+  height: 4rem;
+
+  box-shadow: var(--header-tab-border) 0px 0.063rem 0.413rem;
+}
+
+.header-tab {
+  width: var(--header-tab-width);
+  text-align: center;
+
+  color: var(--header-tab-text);
+}
+
+.project-name {
+  font-size: x-large;
+  font-weight: bold;
+  margin-left: auto;
+  padding-right: 1.875rem;
+  color: var(--project-color);
+}
+
+.project-header .selected {
+  color: var(--project-color);
+  border-bottom: 0.063rem solid var(--project-color);
 }
