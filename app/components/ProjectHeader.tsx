@@ -1,12 +1,27 @@
 import React from "react";
 const { v4 } = require("uuid");
 import Link from "next/link";
+import { getDocument } from "../../firebase/getData";
 
-export default function ProjectHeader(props: { selectedTab: number }) {
+export default async function ProjectHeader(props: {
+  projectId: string;
+  selectedTab: number;
+}) {
+  async function getTitle() {
+    let title = "";
+    const project = await getDocument("projects", props.projectId);
+    if (project.data) {
+      title = project.data.title;
+    }
+
+    return title;
+  }
+
   const tabNames = ["Overview", "Schedule", "Fonts"];
+  const title = await getTitle();
 
   let tabs = tabNames.map((tabName) => {
-    const link = `../project/${tabName.toLowerCase()}`;
+    const link = `../${props.projectId}/${tabName.toLowerCase()}`;
 
     if (props.selectedTab === tabNames.indexOf(tabName)) {
       return (
@@ -26,7 +41,7 @@ export default function ProjectHeader(props: { selectedTab: number }) {
   return (
     <div className="project-header">
       {tabs}
-      <div className="project-name">Docchi mo Kizukanai.</div>
+      <div className="project-name">{title}</div>
     </div>
   );
 }

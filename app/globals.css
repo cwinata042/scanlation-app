@@ -54,7 +54,16 @@ body {
   color: var(--project-color);
 }
 
-.project-header .selected {
+.project-header .selected,
+.main-header .selected {
   color: var(--project-color);
   border-bottom: 0.063rem solid var(--project-color);
+}
+
+.main-header {
+  display: flex;
+  align-items: flex-end;
+  height: 4rem;
+
+  box-shadow: var(--header-tab-border) 0px 0.063rem 0.413rem;
 }
