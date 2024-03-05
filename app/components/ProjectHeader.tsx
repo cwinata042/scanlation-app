@@ -7,6 +7,7 @@ export default async function ProjectHeader(props: {
   projectId: string;
   selectedTab: number;
 }) {
+  // Fetches the title of the project from db
   async function getTitle() {
     let title = "";
     const project = await getDocument("projects", props.projectId);
@@ -25,14 +26,14 @@ export default async function ProjectHeader(props: {
 
     if (props.selectedTab === tabNames.indexOf(tabName)) {
       return (
-        <Link key={v4()} className="header-tab selected" href={link}>
-          {tabName}
+        <Link key={v4()} href={link}>
+          <button className="header-tab selected">{tabName}</button>
         </Link>
       );
     } else {
       return (
-        <Link key={v4()} className="header-tab" href={link}>
-          {tabName}
+        <Link key={v4()} href={link}>
+          <button className="header-tab">{tabName}</button>
         </Link>
       );
     }
@@ -41,6 +42,9 @@ export default async function ProjectHeader(props: {
   return (
     <div className="project-header">
       {tabs}
+      <Link className="back-button" href="../">
+        <button>Return to Project List</button>
+      </Link>
       <div className="project-name">{title}</div>
     </div>
   );

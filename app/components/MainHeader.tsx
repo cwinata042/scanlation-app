@@ -6,7 +6,7 @@ export default function MainHeader(props: { selectedTab: number }) {
   const tabNames = ["Schedule", "All Projects"];
 
   let tabs = tabNames.map((tabName) => {
-    const link = tabName === "Schedule" ? "../schedule" : "../project";
+    const link = tabName === "Schedule" ? "../schedule" : "../projects";
 
     if (props.selectedTab === tabNames.indexOf(tabName)) {
       return (

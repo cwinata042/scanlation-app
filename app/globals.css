@@ -9,8 +9,10 @@
 
   --header-tab-width: 9.063rem;
   --header-tab-border: #9b9b9b75;
+  --header-tab25: #9b9b9b25;
   --header-tab-text: #9b9b9b;
   --project-color: #267264;
+  --project-color25: #26726425;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,12 +48,21 @@ body {
   color: var(--header-tab-text);
 }
 
+.header-tab.selected:hover {
+  background-color: var(--project-color25);
+}
+
+.header-tab:hover {
+  background-color: var(--header-tab25);
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
 .project-name {
   font-size: x-large;
   font-weight: bold;
-  margin-left: auto;
   padding-right: 1.875rem;
   color: var(--project-color);
+  margin-left: auto;
 }
 
 .project-header .selected,
@@ -66,4 +77,17 @@ body {
   height: 4rem;
 
   box-shadow: var(--header-tab-border) 0px 0.063rem 0.413rem;
+}
+
+.back-button {
+  text-align: center;
+  color: grey;
+  font-size: small;
+  margin-left: 5rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+}
+
+.back-button:hover {
+  background-color: var(--header-tab25);
+  border-radius: 0.5rem;
 }

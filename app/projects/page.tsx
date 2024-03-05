@@ -18,7 +18,7 @@ export default function Project() {
     return (
       <Link
         key={v4()}
-        href={`/project/${encodeURIComponent(project.projectId)}/overview`}
+        href={`/projects/${encodeURIComponent(project.projectId)}/overview`}
       >
         {project.title}
       </Link>

@@ -1,9 +1,10 @@
-import Link from "next/link";
+import MainHeader from "./components/MainHeader";
 
 export default function Home() {
   return (
     <main>
-      <Link href="/project">Projects</Link>
+      <MainHeader selectedTab={0} />
+      All project schedules here!
     </main>
   );
 }
